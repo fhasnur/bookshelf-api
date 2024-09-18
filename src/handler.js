@@ -53,4 +53,19 @@ const addBook = (request, h) => {
   return response;
 }
 
-export { addBook };
+const getAllBooks = (request, h) => {
+  const response = h.response({
+    status: 'success',
+    data: {
+      books: books.map((book) => ({
+        id: book.id,
+        name: book.name,
+        publisher: book.publisher,
+      })),
+    },
+  });
+  response.code(200);
+  return response;
+}
+
+export { addBook, getAllBooks };
