@@ -27,7 +27,7 @@ const addBook = (request, h) => {
     return response;
   }
 
-  const newBook = { id, name, year, author, summary, publisher, pageCount, readPage, finished, reading, insertedAt, updatedAt }
+  const newBook = { id, name, year, author, summary, publisher, pageCount, readPage, finished, reading, insertedAt, updatedAt };
 
   books.push(newBook);
 
@@ -38,8 +38,8 @@ const addBook = (request, h) => {
       status: 'success',
       message: 'Buku berhasil ditambahkan',
       data: {
-        bookId: id
-      }
+        bookId: id,
+      },
     });
     response.code(201);
     return response;
@@ -51,7 +51,7 @@ const addBook = (request, h) => {
   });
   response.code(500);
   return response;
-}
+};
 
 const getAllBooks = (request, h) => {
   const { reading, finished, name } = request.query;
@@ -87,7 +87,7 @@ const getAllBooks = (request, h) => {
   });
   response.code(200);
   return response;
-}
+};
 
 const getBookById = (request, h) => {
   const { bookId } = request.params;
@@ -98,9 +98,9 @@ const getBookById = (request, h) => {
     return {
       status: 'success',
       data: {
-        book: book
+        book: book,
       },
-    }
+    };
   }
 
   const response = h.response({
@@ -109,7 +109,7 @@ const getBookById = (request, h) => {
   });
   response.code(404);
   return response;
-}
+};
 
 const updateBook = (request, h) => {
   const { bookId } = request.params;
@@ -167,7 +167,7 @@ const updateBook = (request, h) => {
   });
   response.code(200);
   return response;
-}
+};
 
 const deleteBook = (request, h) => {
   const { bookId } = request.params;
@@ -190,6 +190,6 @@ const deleteBook = (request, h) => {
   });
   response.code(404);
   return response;
-}
+};
 
 export { addBook, getAllBooks, getBookById, updateBook, deleteBook };
