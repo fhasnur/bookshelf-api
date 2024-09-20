@@ -20,26 +20,27 @@ Bookshelf API is a simple RESTful API for managing a collection of books. It pro
 
 ## Installation
 [^ back to top ^](#table-of-contents)
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/bookshelf-api.git
-    cd bookshelf-api
-    ```
 
-2. Install the dependencies:
-    ```bash
-    npm install
-    ```
+**Clone the repository:**
+```bash
+git clone https://github.com/fhasnur/bookshelf-api.git
+cd bookshelf-api
+```
 
-3. Start the server:
-    ```bash
-    npm run start
-    ```
+**Install the dependencies:**
+```bash
+npm install
+```
 
-4. For development, use:
-    ```bash
-    npm run start-dev
-    ```
+**Start the server:**
+```bash
+npm run start
+```
+
+**For development, use:**
+```bash
+npm run start-dev
+```
 
 ## Usage
 [^ back to top ^](#table-of-contents)
@@ -235,3 +236,8 @@ Before running the tests, make sure your server is up and running. You can easil
 newman run bookshelf-api-test.postman_collection.json --environment bookshelf-api-test.postman_environment.json 
 ```
 The tests will run, and you will see the results in the terminal. You can customize the collection for testing all API endpoints described above.
+
+## License
+[^ back to top ^](#table-of-contents)
+
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
