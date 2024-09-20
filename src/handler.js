@@ -9,7 +9,7 @@ const addBook = (request, h) => {
   const updatedAt = insertedAt;
   const finished = readPage === pageCount;
 
-  if (name === '') {
+  if (name === '' || name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
