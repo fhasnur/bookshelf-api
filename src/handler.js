@@ -38,8 +38,8 @@ const addBook = (request, h) => {
       status: 'success',
       message: 'Buku berhasil ditambahkan',
       data: {
-        bookId: id,
-      },
+        bookId: id
+      }
     });
     response.code(201);
     return response;
@@ -54,14 +54,35 @@ const addBook = (request, h) => {
 }
 
 const getAllBooks = (request, h) => {
+  const { reading, finished, name } = request.query;
+
+  const isReading = reading === '1';
+  const isFinished = finished === '1';
+
+  const filteredBooks = books.filter((book) => {
+    if (reading !== undefined && book.reading !== isReading) {
+      return false;
+    }
+
+    if (finished !== undefined && book.finished !== isFinished) {
+      return false;
+    }
+
+    if (name !== undefined && !book.name.toLowerCase().includes(name.toLowerCase())) {
+      return false;
+    }
+
+    return true;
+  }).map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
+
   const response = h.response({
     status: 'success',
     data: {
-      books: books.map((book) => ({
-        id: book.id,
-        name: book.name,
-        publisher: book.publisher,
-      })),
+      books: filteredBooks,
     },
   });
   response.code(200);
@@ -142,7 +163,7 @@ const updateBook = (request, h) => {
 
   const response = h.response({
     status: 'success',
-    message: 'Buku  berhasil diperbarui',
+    message: 'Buku berhasil diperbarui',
   });
   response.code(200);
   return response;
