@@ -1,4 +1,4 @@
-import { addBook, getAllBooks, getBookById, updateBook, deleteBook } from './handler.js';
+import { addBook, getAllBooks, getBookById, updateBook, deleteBook } from '../handlers/index.js';
 
 const routes = [
   {
